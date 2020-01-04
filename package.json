@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ionicons": "^4.6.3",
+    "node-sass": "^4.13.0",
+    "normalize.css": "^8.0.1",
     "react": "0.0.0-experimental-f42431abe",
     "react-dom": "0.0.0-experimental-f42431abe",
     "react-scripts": "^3.3.0"

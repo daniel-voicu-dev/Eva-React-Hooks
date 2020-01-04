@@ -1,0 +1,34 @@
+@import "grid.scss"
+.header      
+  align-items: center 
+.logo
+  display: flex
+  justify-content: center
+  img
+    max-width: 20rem   
+.search
+   
+.nav  
+  &--secondary  
+    grid-row: 1      
+  &--wrapper
+    display: flex
+    flex: wrap
+    justify-content: flex-end
+    align-content: center   
+  &--header
+    font-size: 2rem
+    a 
+      margin-left: var(--grid-gap)   
+.g-3-1-2
+  --grid-cols: 3  
+  .g-1
+    @extend %col-start-2 
+    @extend %col-end-3  
+  .g-2
+    @extend %col-start-3
+    @extend %col-end-4  
+  .g-3
+    @extend %col-start-1 
+    @extend %col-end-2  
+  
