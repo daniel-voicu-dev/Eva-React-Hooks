@@ -1,16 +1,36 @@
 @import "grid.scss"
+@import "elements"
 .header      
-  align-items: center 
+  --wrap-gap: auto
+  --nav-justify: flex-start 
+  --nav-secondary-justify: flex-start
+  align-items: center  
+  i 
+    @extend %icon   
 .logo
   display: flex
   justify-content: center
+  padding: calc(2*var(--grid-gap)) 0
   img
-    max-width: 20rem   
-.search
-   
+    max-width: 20rem 
 .nav  
-  &--secondary  
-    grid-row: 1      
+  &--primary     
+    font-family: 'Ibarra Real Nova', serif
+    font-size: 1.8rem 
+    display: flex 
+    flex-wrap: wrap
+    justify-content: var(--nav-justify)
+  &--secondary 
+    font-weight: 600
+    font-size: 1.3rem    
+    display: flex 
+    flex-wrap: wrap
+    justify-content: var(--nav-secondary-justify,flex-start)
+    > a 
+        &:after 
+          content: "•"
+          padding: 0 calc(2*var(--grid-gap))
+          color: lightgray
   &--wrapper
     display: flex
     flex: wrap
@@ -19,16 +39,189 @@
   &--header
     font-size: 2rem
     a 
-      margin-left: var(--grid-gap)   
-.g-3-1-2
-  --grid-cols: 3  
-  .g-1
-    @extend %col-start-2 
+      margin-left: var(--grid-gap) 
+
+//modifiers      
+.container
+  --wrap-gap: 10vw       
+.nav-justify-center
+  --nav-justify: center
+.nav-secondary-justify
+  &-flex-start .m
+    --nav-secondary-justify: flex-start !important
+  &-flex-end .m
+    --nav-secondary-justify: flex-end !important
+  &-center .m
+    --nav-secondary-justify: center !important  
+//templates  
+.LMSC
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) auto auto 1fr var(--wrap-gap,auto)
+  align-items: center
+  .L
+    @extend %col-start-2
     @extend %col-end-3  
-  .g-2
+    padding-left: var(--grid-gap)
+  .M      
+    @extend %col-start-3
+    @extend %col-end-4     
+    @extend %ml
+    grid-row: 1
+    > a
+      @extend %ml    
+  .SC   
+    @extend %col-start-4
+    @extend %col-end-5 
+    padding-right: var(--grid-gap)
+  .m
+    display: none 
+.L-M-SC
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) minmax(auto,1fr) auto 1fr var(--wrap-gap,auto)
+  align-items: center  
+  .L
+    @extend %col-start-2
+    @extend %col-end-3  
+    justify-content: flex-start
+    padding-left: var(--grid-gap)
+  .M      
     @extend %col-start-3
     @extend %col-end-4  
-  .g-3
-    @extend %col-start-1 
-    @extend %col-end-2  
+    grid-row: 1
+    > a
+      @extend %ml   
+      &:first
+        margin-left: 0 
+  .SC   
+    @extend %col-start-4
+    @extend %col-end-5 
+    padding-right: var(--grid-gap)
+  .m
+    display: none      
+.LSC--M
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) auto 1fr var(--wrap-gap,auto)
+  align-items: center  
+  .L
+    @extend %col-start-2
+    @extend %col-end-3  
+    padding-left: var(--grid-gap)
+  .M      
+    @extend %col-start-2
+    @extend %col-end-3  
+    @extend %special
+    padding-left: var(--grid-gap)
+    grid-column-end: span 2   
+    grid-row: 2
+    > a
+      @extend %mr     
+  .SC   
+    @extend %col-start-3
+    @extend %col-end-4  
+    padding-right: var(--grid-gap)
+  .m
+    display: none 
+.SC--LM
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) auto 1fr var(--wrap-gap,auto)
+  align-items: center
+  .L
+    @extend %col-start-2
+    @extend %col-end-3 
+    grid-row: 2
+    padding-left: var(--grid-gap)
+  .M      
+    @extend %col-start-3
+    @extend %col-end-4 
+    justify-content: flex-end     
+    padding-right: var(--grid-gap)
+    grid-row: 2
+    > a
+      @extend %ml     
+  .SC   
+    @extend %col-start-2
+    @extend %col-end-4  
+    @extend %special
+    padding-right: var(--grid-gap)
+  .m
+    display: none 
+.LmSC--M
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) auto auto 1fr var(--wrap-gap,auto)
+  align-items: center
+  .L
+    @extend %col-start-2
+    @extend %col-end-3  
+    padding-left: var(--grid-gap)
+  .M      
+    @extend %col-start-2
+    @extend %col-end-3 
+    @extend %special
+    padding-left: var(--grid-gap)
+    grid-column-end: span 3   
+    grid-row: 2
+    > a
+      @extend %mr     
+  .SC   
+    @extend %col-start-4
+    @extend %col-end-5 
+    padding-right: var(--grid-gap)
+  .m
+    @extend %col-start-3
+    @extend %col-end-4
+    @extend %ml  
+    grid-row: 1 
+    > a:last-child
+        &:after 
+          content: ""
+          padding: 0
+.m--LSC--M
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) auto 1fr var(--wrap-gap,auto)
+  align-items: center  
+  .L
+    @extend %col-start-2
+    @extend %col-end-3  
+    grid-row: 2
+    padding-left: var(--grid-gap)
+  .M      
+    @extend %col-start-2
+    @extend %col-end-3 
+    @extend %special
+    padding-left: var(--grid-gap)
+    grid-column-end: span 2   
+    grid-row: 3
+    > a
+      @extend %mr     
+  .SC   
+    @extend %col-start-3
+    @extend %col-end-4  
+    padding-right: var(--grid-gap)
+    grid-row: 2
+  .m
+    @extend %col-start-2
+    @extend %col-end-4     
+    @extend %special    
+    --nav-secondary-justify: flex-end
+    grid-row: 1
+    grid-column-end: span 2 
+    padding-right: var(--grid-gap)
+    > a:last-child
+        &:after 
+          content: ""
+          padding: 0
+
+
   

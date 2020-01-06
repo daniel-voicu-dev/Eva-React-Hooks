@@ -1,17 +1,52 @@
 @import "~ionicons/dist/scss/ionicons.scss"
 @import "~@csstools/normalize.css/normalize.css"
-
+@import "temp"
 @import "grid.scss"
+@import "elements"
 
 \:root
-  --grid-gap: 0.25rem
+  --grid-gap: 0.5rem
+  --color-primary: #0c5aab
+  --color-faded: #f3f3f3
+  --wrap-gap: auto
+*
+  box-sizing: border-box 
 img 
   max-width: 100%
 ul 
   list-style: none
-body,html
-  font-size: 14px
+html
+  font-size: 10px
+  font-family: 'Lato', sans-serif
+body  
+  font-size: 1.6rem
+  font-weight: 400  
+  margin: 0
+  padding: 0  
+button
+  border: none
+  outline: none
+  border-radius: 0.5rem  
+  background-color: #000000
+  color: #ffffff
+  cursor: pointer
+  transition: all 0.2s ease-in  
+  @extend %icon
+  &:hover 
+    background-color: var(--color-primary)
+input 
+  @extend %form-input
+   
 nav 
   display: flex
   flex-wrap: wrap
   align-items: center
+a 
+  color: #000
+  text-decoration: none  
+  &:hover
+    color: var(--color-primary)
+
+//style
+.btn
+  @extend %button    

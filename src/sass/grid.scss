@@ -53,7 +53,9 @@ $grid-columns: 12 !default;
 }
 
 .col-start { grid-column-start: 1; }
+%col-start { grid-column-start: 1; }
 .col-end { grid-column-end: -1; }
+%col-end { grid-column-end: -1; }
 
 // breakpoints
 $breakpoints: (
