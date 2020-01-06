@@ -12,7 +12,7 @@ let fakeMainMenu = [
   {"label":"Sale","id":"sale"},
 ]
 
-const headerConfigClass=["LMSC","L-M-SC","LSC--M","SC--LM","LmSC--M","m--LSC--M"];
+const headerConfigClass=["LMSC","L-M-SC","LSC--M","SC--LM","M-L-SC","LmSC--M","m--LSC--M","m-L-SC--M"];
 const justify = ["nav-secondary-justify-flex-end","nav-secondary-justify-center","nav-secondary-justify-flex-start", "nav-secondary-justify-center", ];
 const Header = () => {
   let [config,setConfig] = useState(headerConfigClass[0]);

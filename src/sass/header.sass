@@ -44,8 +44,8 @@
 //modifiers      
 .container
   --wrap-gap: 10vw       
-.nav-justify-center
-  --nav-justify: center
+.nav-justify-center .M
+  --nav-justify: center !important
 .nav-secondary-justify
   &-flex-start .m
     --nav-secondary-justify: flex-start !important
@@ -222,6 +222,64 @@
         &:after 
           content: ""
           padding: 0
-
+.M-L-SC
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) minmax(auto,1fr) auto 1fr var(--wrap-gap,auto)
+  align-items: center  
+  .L
+    @extend %col-start-3
+    @extend %col-end-4  
+    justify-content: flex-start
+    padding-left: var(--grid-gap)
+  .M      
+    @extend %col-start-2
+    @extend %col-end-3  
+    grid-row: 1
+    > a
+      @extend %ml   
+      &:first-child
+        margin-left: 0 
+  .SC   
+    @extend %col-start-4
+    @extend %col-end-5 
+    padding-right: var(--grid-gap)
+  .m
+    display: none 
+.m-L-SC--M
+  --grid-gap: 0.5rem
+  display: grid
+  grid-gap: var(--grid-gap)
+  grid-template-columns: var(--wrap-gap,auto) minmax(auto,1fr) auto 1fr var(--wrap-gap,auto)
+  align-items: center  
+  .L
+    @extend %col-start-3
+    @extend %col-end-4  
+    justify-content: flex-start
+    padding-left: var(--grid-gap)
+    grid-row: 1
+  .M    
+    --nav-justify: center
+    grid-column-end: span 5
+    grid-row: 2
+    > a
+      @extend %ml   
+      &:first-child
+        margin-left: 0 
+  .SC   
+    @extend %col-start-4
+    @extend %col-end-5 
+    padding-right: var(--grid-gap)
+    grid-row: 1  
+  .m
+    @extend %col-start-2
+    @extend %col-end-3 
+    grid-row: 1    
+    justify-content: flex-start 
+    > a:last-child
+        &:after 
+          content: ""
+          padding: 0   
 
   

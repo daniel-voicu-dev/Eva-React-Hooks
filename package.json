@@ -2,6 +2,7 @@
   "name": "store",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/files/ecommerce/",
   "dependencies": {
     "ionicons": "^4.6.3",
     "node-sass": "^4.13.0",
