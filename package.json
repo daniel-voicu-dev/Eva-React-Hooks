@@ -5,7 +5,7 @@
   "homepage": "/files/ecommerce/",
   "dependencies": {
     "ionicons": "^4.6.3",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "react": "0.0.0-experimental-f42431abe",
     "react-dom": "0.0.0-experimental-f42431abe",
